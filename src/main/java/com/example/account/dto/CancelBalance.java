@@ -18,8 +18,7 @@ public class CancelBalance {
     @Setter
     @AllArgsConstructor
     public static class Request {
-        @NotNull
-        @Min(1)
+        @NotBlank
         private String transactionId;
 
         @NotBlank

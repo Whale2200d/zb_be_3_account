@@ -48,7 +48,7 @@ public class Account {
     }
 
     public void cancelBalance(Long amount) {
-        if (amount > 0) {
+        if (amount < 0) {
             throw new AccountException(ErrorCode.INVALID_REQUEST);
         }
 
