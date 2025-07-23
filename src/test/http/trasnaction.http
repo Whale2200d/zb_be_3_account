@@ -1,21 +1,19 @@
-### get account
-GET http://localhost:8080/account?user_id=1
-Accept: application/json
-
-### create Account
-POST http://localhost:8080/account
+### use balance
+POST http://localhost:8080/transaction/use
 Content-Type: application/json
 
 {
   "userId": 1,
-  "initialBalance": 1000
+  "accountNumber": "1000000002",
+  "amount": 20000
 }
 
-### delete Account
-DELETE http://localhost:8080/account
+### cancel balance
+POST http://localhost:8080/transaction/cancel
 Content-Type: application/json
 
 {
-  "userId": 1,
-  "accountNumber": "1000000001"
+  "transactionId": "3947ac52d46efca24dbd534d7278b4",
+  "accountNumber": "1000000002",
+  "amount": 20000
 }
