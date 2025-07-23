@@ -29,7 +29,7 @@ public class UseBalance {
         @NotNull
         @Min(10)
         @Max(1000_000_000)
-        private Long initialBalance;
+        private Long amount;
     }
 
     /**
@@ -52,5 +52,15 @@ public class UseBalance {
         private String transactionId;
         private Long amount;
         private LocalDateTime transactedAt;
+
+        public static Response from(TransactionDto transactionDto) {
+            return Response.builder()
+                    .accountNumber(transactionDto.getAccountNumber())
+                    .transactionResult(transactionDto.getTransactionResultType())
+                    .transactionId(transactionDto.getTransactionId())
+                    .amount(transactionDto.getAmount())
+                    .transactedAt(transactionDto.getTransactedAt())
+                    .build();
+        }
     }
 }
